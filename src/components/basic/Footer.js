@@ -10,7 +10,6 @@ function Footer() {
       <div className="footer_right">
         <div className="footer_list">
           <ul>
-            #161a14
             <li>
               <Link>home</Link>
             </li>
