@@ -158,6 +158,18 @@ body {
     }
   }
 }
+@media (max-width: 750px) {
+  .shops .designers,
+  .shops .findShops {
+    padding-left: 0;
+  }
+  .shops .designers .findShops_right span img,
+  .shops .designers .designers_right span img,
+  .shops .findShops .findShops_right span img,
+  .shops .findShops .designers_right span img {
+    padding-left: 2vw;
+  }
+}
 
 .imgSec {
   margin-top: 15vw;
@@ -253,7 +265,7 @@ body {
   .footer_contact {
     width: 70%;
     ul li {
-      padding: 0.5vw 0;
+      padding: 1vw 0;
     }
     .icon {
       a {
@@ -268,6 +280,7 @@ body {
     border-top: 1px solid #a3a3a3;
     ul {
       display: flex;
+      flex-wrap: wrap;
       li {
         padding: 0 1vw 0 0;
         a {
