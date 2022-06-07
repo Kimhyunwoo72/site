@@ -1,18 +1,53 @@
 import React from "react";
+import { setState, useEffect } from "react";
 import "../../assets/scss/style.scss";
 import Header from "../basic/Header";
 import Footer from "../basic/Footer";
 import Slider from "../page/Slider";
 import { Link } from "react-router-dom/cjs/react-router-dom.min";
+
+// gsap
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 // import Banner from "../page/Banner";
 
 function Main() {
+  useEffect(() => {
+    gsap.to(".main_bg", {
+      duration: 1.2,
+      delay: 0.2,
+      ease: "power2.inOut",
+      height: 0,
+    });
+    gsap.to(".banner_bg", {
+      duration: 1.2,
+      delay: 0.3,
+      ease: "power2.inOut",
+      height: 0,
+    });
+
+    gsap.to(".about_desc", {
+      scrollTrigger: {
+        trigger: ".main_about",
+        markers: true,
+        start: "5% center",
+      },
+      stagger: 0.2,
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+    });
+  });
   return (
     <>
       <Header />
       <main>
+        <div className="main_bg"></div>
         <section className="banner_wrap">
           <article className="banner">
+            <div className="banner_bg"></div>
             <div className="banner_text">
               <h1>OnAndYou</h1>
               <p>
@@ -26,11 +61,19 @@ function Main() {
           <article>
             <span className="text_left">about us</span>
             <span className="text_right">
-              <h2>
-                <i>MOHEIM creates</i> <br />
-                <span> “new standard” to</span> <br /> enrich your everyday
-                life.
-              </h2>
+              <div className="right_title">
+                <span className="right_desc">
+                  <span className="about_desc">MOHEIM creates</span>
+                </span>
+                <br />
+                <span className="right_desc right_desc2">
+                  <span className="about_desc">“new standard” to</span>
+                </span>
+                <br />
+                <span className="right_desc right_desc3">
+                  <span className="about_desc">enrich your everyday life.</span>
+                </span>
+              </div>
               <p>
                 The common denominator in MOHEIM's designs is minimalism and
                 simplicity, and a desire to fit smoothly into people's lives. We
